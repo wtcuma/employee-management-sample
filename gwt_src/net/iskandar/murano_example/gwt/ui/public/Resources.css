@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+.employee-add-icon {
+  background-image: url(images/icons/employee_add.png) !important;
+}
+
+.employee-edit-icon {
+  background-image: url(images/icons/employee_edit.png) !important;
+}
+
+.employee-delete-icon {
+  background-image: url(images/icons/employee_delete.png) !important;
+}

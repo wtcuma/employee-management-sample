@@ -1,0 +1,46 @@
+To build application you have to download and unpack Google Web Toolkit (something about 20 mb)
+for your OS from http://code.google.com/p/google-web-toolkit.
+
+In build.xml located at root of source distribution, setup
+gwt.home property to point to root of Google Web Toolkit installation.
+
+<project name="Murano Soft Example" basedir="." default="war">
+
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="gwt.prepare.dir" value="${build.dir}/gwt_prepare" />
+	<property name="gwt.home" value="c:/gwt-windows-1.5.2" />
+                                      ^ 
+                     modify to your gwt installation directory
+
+Create database on your postgresql server executing script - schema.ddl.
+Execute positions.sql to fullfill position table.
+Execute employee.sql if you prefer employee table to be fullfiled with test data.
+
+To setup database connection, in file WebContent/WEB-INF/applicationContext.xml
+modify url, username and password property settings of dataSource bean definition:
+
+<bean name="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql:employees" />
+		                              ^
+		                       url of your database       
+		<property name="username" value="postgres" />
+		                                    ^
+		                             your user account
+		<property name="password" value="postgres" />
+		                                    ^
+		                        password of your user account
+		
+</bean>
+
+Execute command 
+
+  >ant war
+  
+Deploy build/MuranoExample.war to your application server
+
+Invoke application pointing your browser to: http://localhost:8080/MuranoExample
+

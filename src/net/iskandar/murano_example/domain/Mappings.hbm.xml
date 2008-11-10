@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="net.iskandar.murano_example.domain">
+
+	<class name="Employee">
+
+		<id name="id" type="integer">
+			<generator class="identity" />
+		</id>
+		
+		<property name="firstName" type="string" length="20" />
+		<property name="lastName" type="string" length="20" />
+		<property name="phoneNumber" type="string" length="30" />
+		<many-to-one name="position" class="Position" column="positionId" 
+					 index="employee_positionId_idx" />
+		<property name="status" 
+		          type="net.iskandar.murano_example.dal.impl.support.hibernate.CharacterStatusType"  />
+		
+	</class>
+	
+	<class name="Position">
+
+		<id name="id" type="integer" />
+		<property name="name" type="string" length="20" />
+		
+	</class>
+	
+
+</hibernate-mapping>

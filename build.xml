@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Murano Soft Example" basedir="." default="war">
+
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="gwt.prepare.dir" value="${build.dir}/gwt_prepare" />
+	<property name="gwt.home" value="c:/gwt-windows-1.5.2" />
+
+	<path id="compile.classpath">
+		<fileset dir="lib/hibernate">
+		    <include name="hibernate3.jar" />
+        </fileset>
+		<fileset dir="lib/spring">
+			<include name="spring-tx.jar" />
+			<include name="spring-webmvc.jar" />
+			<include name="spring-web.jar" />
+			<include name="spring-context.jar" />
+			<include name="spring-beans.jar" />
+			<include name="spring-core.jar" />
+        </fileset>
+		<fileset dir="lib/servlet-api">
+			<include name="servlet-api.jar" />
+        </fileset>
+		<fileset dir="${gwt.home}">
+			<include name="gwt-servlet.jar" />
+		</fileset>
+	</path>
+
+	<path id="gwt.compile.classpath" 
+		path="${gwt.home}/gwt-dev-windows.jar:${gwt.home}/gwt-user.jar:${classes.dir}:${gwt.prepare.dir}/src:${gwt.prepare.dir}/bin:lib/gwt/gxt.jar" />
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="src" destdir="${classes.dir}" debug="true">
+			<classpath refid="compile.classpath" />
+		</javac>
+		<copy todir="${classes.dir}">
+			<fileset dir="src" includes="**/*.xml" />
+		</copy>
+	</target>
+
+	<target name="gwt.prepare" depends="compile">
+		<mkdir dir="${gwt.prepare.dir}" />
+		<copy todir="${gwt.prepare.dir}/src">
+			<fileset dir="gwt_src" includes="**/*" />	
+		</copy>
+		<copy todir="${gwt.prepare.dir}/src/net/iskandar/murano_example/gwt/super_source">
+			<fileset dir="src" includes="net/iskandar/murano_example/*Management.java" />
+			<fileset dir="gwt_src" includes="net/iskandar/murano_example/*ManagementAsync.java" />
+			<fileset dir="src" includes="net/iskandar/murano_example/dto/*.java" />
+		</copy>
+		<mkdir dir="${gwt.prepare.dir}/bin" />
+		<javac srcdir="${gwt.prepare.dir}/src" destdir="${gwt.prepare.dir}/bin" excludes="net/iskandar/murano_example/gwt/super_source/**/*">
+			<classpath refid="gwt.compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="gwt.compile" depends="gwt.prepare">
+		<java classname="com.google.gwt.dev.GWTCompiler" fork="true">
+			<classpath refid="gwt.compile.classpath" />
+			<jvmarg value="-Xmx256M" />
+			
+			<arg value="-out" />
+			<arg value="${gwt.prepare.dir}/out" />
+			<arg value="net.iskandar.murano_example.gwt.ui.EmployeeManagement" />
+		</java>
+	</target>
+
+<!--	<target name="gwt.shell" depends="gwt.prepare">
+		<java classname="com.google.gwt.dev.GWTShell" fork="true">
+			<classpath refid="gwt.compile.classpath" />
+			<jvmarg value="-Xmx256M" />
+			<jvmarg value="-Xdebug"/>
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,address=127.0.0.1:8055,server=y,suspend=n"/>
+			<arg value="-noserver" />
+			<arg value="-out" />
+			<arg value="${gwt.prepare.dir}/out" />
+			<arg value="http://localhost:8080/MuranoExample/Main.html" />
+		</java>
+	</target>
+-->
+	<target name="war" depends="compile,gwt.compile">
+		<mkdir dir="${build.dir}/war" />
+		<copy todir="${build.dir}/war">
+			<fileset dir="WebContent" includes="**/*" />
+			<fileset dir="${gwt.prepare.dir}/out/net.iskandar.murano_example.gwt.ui.EmployeeManagement" 
+				includes="**/*" />
+		</copy>
+		<copy todir="${build.dir}/war/WEB-INF/classes">
+			<fileset dir="${classes.dir}" includes="**/*" />
+		</copy>
+		<copy todir="${build.dir}/war/WEB-INF/lib">
+			<fileset dir="lib/hibernate" includes="**/*.jar" />
+			<fileset dir="lib/spring" includes="**/*.jar" />
+			<fileset dir="lib/commons" includes="**/*.jar" />
+			<fileset dir="lib/postgresql-jdbc" includes="**/*.jar" />
+			<fileset dir="${gwt.home}" includes="gwt-servlet.jar" />
+		</copy>
+		<jar destfile="${build.dir}/MuranoSoftExample.war" basedir="${build.dir}/war" />
+	</target>
+
+</project>
