@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/tx/spring-aop-2.5.xsd">
+
+	<bean name="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql:employees" />
+		<property name="username" value="postgres" />
+		<property name="password" value="postgres" />
+	</bean>
+
+	<bean name="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>
+					net/iskandar/murano_example/domain/Mappings.hbm.xml
+				</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+			</value>
+		</property>
+	</bean>
+
+	<bean name="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="employeeManagement"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="txManager" />
+		<property name="target">
+			<bean class="net.iskandar.murano_example.impl.EmployeeManagementImpl">
+				<property name="employeeDao" ref="employeeDao" />
+				<property name="positionDao" ref="positionDao" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="addEmployee">PROPAGATION_REQUIRED</prop>
+				<prop key="updateEmployee">PROPAGATION_REQUIRED</prop>
+				<prop key="deleteEmployee">PROPAGATION_REQUIRED</prop>
+
+				<prop key="getPositions">PROPAGATION_REQUIRED</prop>
+				<prop key="getEmployees">PROPAGATION_REQUIRED</prop>
+				<prop key="getEmployee">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean name="employeeDao"
+		class="net.iskandar.murano_example.dal.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean name="positionDao"
+		class="net.iskandar.murano_example.dal.impl.PositionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>

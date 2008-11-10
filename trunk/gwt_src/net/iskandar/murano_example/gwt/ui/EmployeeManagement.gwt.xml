@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module>
+
+	<inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.extjs.gxt.ui.GXT'/>
+    <inherits name='com.extjs.gxt.themes.Themes' />
+	
+	<inherits name='net.iskandar.murano_example.gwt.super_source.SuperSource'/>
+	<entry-point class='net.iskandar.murano_example.gwt.ui.client.EmployeeManagement'/>
+  	<stylesheet src="Resources.css" />
+  	
+</module>

@@ -1,0 +1,91 @@
+Buildfile: build.xml
+
+compile:
+    [javac] Compiling 13 source files to C:\Projects\MuranoSoftExample\build\classes
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\PersistenceManagerImpl.java:47: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:25: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:30: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:35: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:40: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:47: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:53: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:59: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:65: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:71: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:77: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:86: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:97: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:104: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\support\hibernate\StatusType.java:109: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\support\faces\PersistenceListener.java:12: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\support\faces\PersistenceListener.java:17: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\support\faces\PersistenceListener.java:27: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementAbstractImpl.java:15: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementAbstractImpl.java:24: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementAbstractImpl.java:30: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:42: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:51: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:75: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:82: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:95: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\impl\EmployeeManagementImpl.java:108: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\web\DefaultUrlFilter.java:21: method does not override a method from its superclass
+    [javac] 	@Override
+    [javac]          ^
+    [javac] Note: C:\Projects\MuranoSoftExample\src\net\iskandar\murano_example\dal\impl\PositionDaoImpl.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 28 errors
