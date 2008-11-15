@@ -6,7 +6,6 @@ import net.iskandar.murano_example.EmployeeManagementAsync;
 import net.iskandar.murano_example.dto.EmployeeUpdateObject;
 import net.iskandar.murano_example.dto.SelectOption;
 import net.iskandar.murano_example.dto.StatusCase;
-import net.iskandar.murano_example.gwt.ui.client.mvc.AppEvents;
 import net.iskandar.murano_example.gwt.ui.client.mvc.controller.MainControllerImpl;
 import net.iskandar.murano_example.gwt.ui.client.widget.MainPanel;
        

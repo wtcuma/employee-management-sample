@@ -12,7 +12,7 @@ import net.iskandar.murano_example.dto.SelectOption;
 import net.iskandar.murano_example.dto.StatusCase;
 import net.iskandar.murano_example.gwt.ui.client.Services;
 import net.iskandar.murano_example.gwt.ui.client.Utils;
-import net.iskandar.murano_example.gwt.ui.client.mvc.AppEvents;
+
 import net.iskandar.murano_example.gwt.ui.client.widget.EmployeeEditData;
 
 /**

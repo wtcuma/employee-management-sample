@@ -11,6 +11,9 @@
 		<fileset dir="lib/hibernate">
 		    <include name="hibernate3.jar" />
         </fileset>
+		<fileset dir="lib/commons">
+			<include name="commons-dbcp.jar" />
+		</fileset>
 		<fileset dir="lib/spring">
 			<include name="spring-tx.jar" />
 			<include name="spring-webmvc.jar" />
@@ -98,10 +101,10 @@
 			<fileset dir="lib/hibernate" includes="**/*.jar" />
 			<fileset dir="lib/spring" includes="**/*.jar" />
 			<fileset dir="lib/commons" includes="**/*.jar" />
-			<fileset dir="lib/postgresql-jdbc" includes="**/*.jar" />
+			<fileset dir="lib/derby" includes="**/*.jar" />
 			<fileset dir="${gwt.home}" includes="gwt-servlet.jar" />
 		</copy>
-		<jar destfile="${build.dir}/MuranoSoftExample.war" basedir="${build.dir}/war" />
+		<jar destfile="${build.dir}/EmployeeManagementSample.war" basedir="${build.dir}/war" />
 	</target>
 
 </project>
