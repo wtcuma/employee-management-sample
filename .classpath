@@ -27,5 +27,7 @@
 	<classpathentry kind="lib" path="lib/spring/spring-tx.jar"/>
 	<classpathentry kind="lib" path="C:/From Anvarbek/NewGwt/gwt-windows-1.5.0/gwt-windows-1.5.0/gwt-user.jar"/>
 	<classpathentry kind="lib" path="lib/log4j/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-pool.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

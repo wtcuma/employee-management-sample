@@ -1,15 +1,15 @@
     create table Employee (
-        id  serial not null,
+        id int generated always as identity,
         firstName varchar(20),
         lastName varchar(20),
         phoneNumber varchar(30),
-        positionId int4,
+        positionId int,
         status char(1),
         primary key (id)
     );
 
     create table Position (
-        id int4 not null,
+        id int not null,
         name varchar(1024),
         primary key (id)
     );
