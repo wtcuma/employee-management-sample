@@ -47,17 +47,23 @@
 		</copy>
 	</target>
 
+	
+	<!--
+		gwt.prepare - prepares gwt compilation just because of super-source hack.
+	-->
 	<target name="gwt.prepare" depends="compile">
 		<mkdir dir="${gwt.prepare.dir}" />
 		<copy todir="${gwt.prepare.dir}/src">
 			<fileset dir="gwt_src" includes="**/*" />	
 		</copy>
+		<!-- copy all application package entries into super source saving package structure -->
 		<copy todir="${gwt.prepare.dir}/src/net/iskandar/murano_example/gwt/super_source">
 			<fileset dir="src" includes="net/iskandar/murano_example/*Management.java" />
 			<fileset dir="gwt_src" includes="net/iskandar/murano_example/*ManagementAsync.java" />
 			<fileset dir="src" includes="net/iskandar/murano_example/dto/*.java" />
 		</copy>
 		<mkdir dir="${gwt.prepare.dir}/bin" />
+		<!-- java precompile client side package -->
 		<javac srcdir="${gwt.prepare.dir}/src" destdir="${gwt.prepare.dir}/bin" excludes="net/iskandar/murano_example/gwt/super_source/**/*">
 			<classpath refid="gwt.compile.classpath" />
 		</javac>
